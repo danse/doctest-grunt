@@ -8,6 +8,8 @@
 
 'use strict';
 
+var doctest = require('doctest');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -32,6 +34,7 @@ module.exports = function(grunt) {
           return true;
         }
       }).map(function(filepath) {
+        doctest(filepath);
         // Read file source.
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(options.separator));
